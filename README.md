@@ -3,6 +3,7 @@ Web application of emerging technologies exploration
 
 ## Getting Started
 
+```
 # clone this repository
 git clone https://github.com/Initiator-Z/ilab-emerging-tech-trend.git
 cd ilab-emerging-tech-trend
