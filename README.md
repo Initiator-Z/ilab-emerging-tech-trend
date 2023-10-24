@@ -9,8 +9,8 @@ git clone https://github.com/Initiator-Z/ilab-emerging-tech-trend.git
 cd ilab-emerging-tech-trend
 
 # create new conda environment
-conda create --name emerging-trend python=3.10
-conda activate emerging-trend
+conda create --name ilab python=3.10
+conda activate ilab
 
 # install dependcies
 pip install -r requirements.txt
