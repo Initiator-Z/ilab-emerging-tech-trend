@@ -41,8 +41,12 @@ def prepare_patent_data(rss_feed_url, category_names, start_date=None, end_date=
         "category": categories,
         "link": links
     }
+
     df = pd.DataFrame(data)
-    return df
+    df['publish_date'] = pd.to_datetime(df['publish_date'], format='%a, %d %B %Y %H:%M:%S EDT', errors='coerce')
+    df_clean = df.dropna(subset=['publish_date'])
+
+    return df_clean
 
 def get_available_categories():
     rss_feed_list_url = "https://www.freepatentsonline.com/rssfeed.html"

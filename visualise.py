@@ -8,7 +8,7 @@ def bar_chart(data):
     agg_data = data.groupby('classification').size().reset_index(name='count')
     fig = px.bar(agg_data, x='classification', y='count', color='classification',
                  labels={'classification': 'Classification', 'count': 'Count of Publications'},
-                 title='Interactive Bar Chart of Application Fields')
+                 title='Count of Publication/Patent in Application Fields')
     return fig
 
 def time_series(data):
@@ -33,7 +33,7 @@ def time_series(data):
     count_df = pd.DataFrame(count_data)
     fig = px.line(count_df, x='Interval Start', y='Count', color='Classification',
                   labels={'Count': 'Count of Publications'},
-                  title='Interactive Time Series Line Chart of Application Fields')
+                  title='Count of Application Fields Over Time')
 
     fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), title_text='Publication Time'),
                       yaxis_title='Count of Publications')
@@ -45,6 +45,6 @@ def pie_chart(data, selected_year):
     count_data = filtered_data['classification'].value_counts().reset_index()
     count_data.columns = ['Classification', 'Count']
     fig = px.pie(count_data, names='Classification', values='Count',
-                 title=f'Proportion of Classes in {selected_year}',
+                 title=f'Proportion of Application Fields in {selected_year}',
                  color_discrete_sequence=px.colors.qualitative.Set3)
     return fig
